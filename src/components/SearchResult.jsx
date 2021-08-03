@@ -1,30 +1,40 @@
+import DateFunction from './DateFunction';
+import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col'
 import './Search.css'
 
 const SearchResult = (props) => {
-    const { key, role, company_name, url, location, logo } = props;
+    const { key, role, company_name, location, logo, date, listing } = props;
+    const formatDate = date.slice(0,10).replace(/-/g, ",")
 
     return (
-        <a href={url}>
-            <Card key={key} style={{ width: '70vw' }}>
-                <div className="row">
-                    <Col className="d-flex">
-                        <Card.Img src={logo} className="card-img" />
-                    </Col>
-                    <Col xs={9}>
-                        <Card.Body className="align-left">
-                            <Card.Title><b>{role}</b></Card.Title>
-                            <Card.Text>
-                                <p>{company_name} - {location}</p>
-                            </Card.Text>
+       
+        <Card key={key} style={{ width: '90vw' }}>
+            <div className="row">
+                <Col className="d-flex align-self-center">
+                    <div className="img-wrapper d-block">
+                        {!!logo ? (<Card.Img src={logo} className="card-img" />) : (<p>No image found</p>)}
+                    </div>
+                </Col>
+                <Col xs={9}>
+                    <Card.Body className="align-left">
+                        <Card.Title><b>{role}</b></Card.Title>
+                        <Card.Text>
+                            <p>{company_name} - {!!location ? (
+                                <span>{location}</span>
+                            ) : (<span>No office location</span>) }</p>
+                            <DateFunction formatDate={formatDate}/>
+                        </Card.Text>
+                        <Link to={`search/${listing.id}`}>
                             <Button variant="primary">Details</Button>
-                        </Card.Body>
-                    </Col>
-                </div>    
-            </Card>
-        </a>
+                        </Link>
+                    </Card.Body>
+                </Col>
+            </div>    
+        </Card>
+       
             
     )
 }   

@@ -2,29 +2,8 @@
     text-align: center;
 }
 
-table a {
-    text-decoration: none;
-    color: black;
-  }
-  
-table a:hover {
-    color: #1669D2;
-}
-
-table {
-    width: 85vw;
-}
-  
-table, th, tr {
-    border: 1px solid gray;
-}
-  
-th, td {
-    padding: 10px;
-}
-  
-tr.border_bottom td {
-    border-bottom: 1px solid gray;
+label {
+    margin-right: 5px;
 }
 
 .align-left {
@@ -53,9 +32,12 @@ a > * {
   .card-container {
       display: flex;
       justify-content: center;
-      flex-wrap:wrap
+      flex-wrap: wrap;
+      margin-bottom: 15px;
   }
 
   .card-img {
       padding: 10px;
+      width: auto;
+      height: auto;
   }
