@@ -1,0 +1,61 @@
+.content {
+    text-align: center;
+}
+
+table a {
+    text-decoration: none;
+    color: black;
+  }
+  
+table a:hover {
+    color: #1669D2;
+}
+
+table {
+    width: 85vw;
+}
+  
+table, th, tr {
+    border: 1px solid gray;
+}
+  
+th, td {
+    padding: 10px;
+}
+  
+tr.border_bottom td {
+    border-bottom: 1px solid gray;
+}
+
+.align-left {
+    text-align: left;
+}
+
+a {
+    font-weight:400;
+    text-decoration: none !important;
+    color:black;
+}
+
+a > * {
+    color: black;
+}
+  
+  a:hover {
+    color: black;
+  }
+  
+  a:visited {
+    text-decoration: none;
+    color: black;
+  }
+
+  .card-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap:wrap
+  }
+
+  .card-img {
+      padding: 10px;
+  }
