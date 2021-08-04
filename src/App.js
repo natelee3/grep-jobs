@@ -5,9 +5,13 @@ import Search from "./components/Search";
 import Navigation from './components/Navigation';
 import Login from './components/Login';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useAuth0 } from '@auth0/auth0-react';
 
 
 function App() {
+  const { user } = useAuth0();
+
+  console.log('user info: ', user)
   return (
     <div className="App">
       <Router>
