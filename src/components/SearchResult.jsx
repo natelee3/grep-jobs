@@ -6,12 +6,13 @@ import Col from 'react-bootstrap/Col'
 import './Search.css'
 
 const SearchResult = (props) => {
-    const { key, role, company_name, location, logo, date, listing } = props;
-    const formatDate = date.slice(0,10).replace(/-/g, ",")
+    const { id, role, company_name, location, logo, date_posted } = props.listing;
+    const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
+    console.log(props.listing)
 
     return (
        
-        <Card key={key} style={{ width: '90vw' }}>
+        <Card key={id} style={{ width: '90vw' }}>
             <div className="row">
                 <Col className="d-flex align-self-center">
                     <div className="img-wrapper d-block">
@@ -27,7 +28,7 @@ const SearchResult = (props) => {
                             ) : (<span>No office location</span>) }</p>
                             <DateFunction formatDate={formatDate}/>
                         </Card.Text>
-                        <Link to={`search/${listing.id}`}>
+                        <Link to={`search/${id}`}>
                             <Button variant="primary">Details</Button>
                         </Link>
                     </Card.Body>

@@ -67,16 +67,9 @@ const JobSearch = (props) => {
 
                         <div className="card-container container">
                             {!!searchResults.length > 0 ? 
-                                searchResults.map((listing, index) => (
+                                searchResults.map(listing => (
                                     <Row className="flex-left">
                                         <SearchResult 
-                                            key={`${index}-${listing.company_name}`}
-                                            role={listing.role}
-                                            company_name={listing.company_name}
-                                            url={listing.url}
-                                            location={listing.location}
-                                            logo={listing.logo}
-                                            date={listing.date_posted}
                                             listing={listing}
                                         />
                                     </Row>
