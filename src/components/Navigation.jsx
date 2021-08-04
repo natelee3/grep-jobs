@@ -7,7 +7,7 @@ import { Link } from 'react-router-dom';
 import './Navigation.css'
 
 const Navigation = (props) => {
-  const { loginWithRedirect } = useAuth0();
+  const { loginWithRedirect, logout } = useAuth0();
 
   return (
 <>
@@ -22,6 +22,7 @@ const Navigation = (props) => {
         <Nav.Link href="/">Home</Nav.Link>
         <Nav.Link href="/search">Search</Nav.Link>
         <Link onClick={ async() => await loginWithRedirect()} href='/dashboard'>Login/Sign Up</Link>
+        <Link onClick={ () => logout({returnTo: window.location.origin})}>Logout</Link>
       </Nav>
     </Navbar.Collapse>
   </Container>
