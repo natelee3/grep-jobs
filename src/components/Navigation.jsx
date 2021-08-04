@@ -10,7 +10,9 @@ const Navigation = (props) => {
 <>
     <Navbar bg="transparent" expand="lg">
   <Container className="nav-container">
-    <Navbar.Brand href="/">Job Search</Navbar.Brand>
+    <Navbar.Brand href="/">
+      <img src="/grepjobs_brand.png" alt="logo" className="brand-img"/>
+    </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">

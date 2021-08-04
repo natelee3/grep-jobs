@@ -6,3 +6,11 @@
   .nav-container > * {
     justify-content: space-between;
   }
+
+  .brand-img {
+    height: 60px;
+  }
+
+  .me-auto > * {
+    color: white;
+  }

@@ -7,18 +7,14 @@ import Row from 'react-bootstrap/Row';
 
 const JobSearch = (props) => {
     const [searchTerms, setSearchTerms] = useState('');
+    const [location, setLocation] = useState('')
     const [searchResults, setSearchResults] = useState([])
     const [pastResults, setPastResults] = useState([])
 
 
-    const _fetchResults = () => {
-        const key = 'Token 4c95d9d3623b7f3fe789864d2db137ffe9ac9391'
-        const requestOptions = {
-            method: 'GET',
-            headers: {'Authorization': `${key}`}
-        }
-        const url = `https://cors-anywhere.herokuapp.com/https://findwork.dev/api/jobs?search=${searchTerms}`;
-        fetch(url, requestOptions)
+    const _fetchResults = async () => {
+        const url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${searchTerms}&location=${location}`;
+        await fetch(url)
             .then(response => response.json())
             .then(data => setSearchResults(data.results))
         
@@ -28,7 +24,8 @@ const JobSearch = (props) => {
         e.preventDefault();
         _fetchResults();
         setPastResults([...pastResults, searchTerms])
-        setSearchTerms('');
+        setSearchTerms('')
+        setLocation('');
     }
 
     return (
@@ -41,10 +38,20 @@ const JobSearch = (props) => {
                             <label>
                                 <input 
                                     type="text"
-                                    placeholder="Search all jobs"
+                                    placeholder="🔎 Search all jobs"
                                     value={searchTerms}
                                     onChange={(e) => {
                                         setSearchTerms(e.target.value)
+                                    }}
+                                />
+                            </label>
+                            <label>
+                                <input 
+                                    type="text"
+                                    placeholder="📍 Located anywhere"
+                                    value={location}
+                                    onChange={(e) => {
+                                        setLocation(e.target.value)
                                     }}
                                 />
                             </label>
