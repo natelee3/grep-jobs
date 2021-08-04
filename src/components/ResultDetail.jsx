@@ -13,7 +13,7 @@ const ResultDetail = ({searchResults}) => {
       }
 
     let result = searchResults.find((listing => {
-        if (listing.id == listingId) {
+        if (listing.id === parseInt(listingId)) {
             return listing;
         } else {
             return console.log('Details not found')
