@@ -11,7 +11,7 @@ const ResultDetail = ({searchResults}) => {
         const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
       }
-
+    
     let result = searchResults.find((listing => {
         if (listing.id === parseInt(listingId)) {
             return listing;
