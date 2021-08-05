@@ -27,12 +27,6 @@ const Dashboard = (props) => {
     const { path, url } = useRouteMatch()
     const { user, isAuthenticated } = useAuth0();
     const { loginWithRedirect } = useAuth0();
-    // const isAuthenticated = true;
-    // const user = {
-    //     name: 'nleepercussion@gmail.com',
-    //     email: 'nleepercussion@gmail.com',
-    //     nickname: 'Nate'
-    // }
 
     useEffect(() => {
         (async () => {
