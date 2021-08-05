@@ -1,6 +1,7 @@
 import { useAuth0 } from "@auth0/auth0-react";
 import './Dashboard.css';
-import SearchResult from "./SearchResult";
+import SavedResult from "./SavedResult";
+import ResultDetail from './ResultDetail';
 import { BrowserRouter as Router, Switch, Route, Link, useRouteMatch } from 'react-router-dom';
 
 const Dashboard = (props) => {
@@ -42,7 +43,7 @@ const Dashboard = (props) => {
                                     <h1>Saved Jobs for {user.nickname}</h1>
                                     <div className="content">
                                         {listings.map(listing => (
-                                            <SearchResult listing={listing}/>
+                                            <SavedResult listing={listing}/>
                                         ))}
                                     </div>
                                 </>
