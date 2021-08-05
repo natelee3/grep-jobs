@@ -14,6 +14,7 @@ const SearchResult = (props) => {
     const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
 
     const _saveJob = () => {
+        console.log(id, user.sub, company_name, role, logo, location, date_posted)
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
@@ -28,6 +29,7 @@ const SearchResult = (props) => {
                 }
             )
         };
+        console.log(requestOptions)
         fetch('http://localhost:3333/jobs/add', requestOptions)
             .then(response => response.json())
             .then(data => {
