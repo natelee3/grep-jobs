@@ -1,5 +1,6 @@
 import DateFunction from './DateFunction';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -7,6 +8,7 @@ import Col from 'react-bootstrap/Col'
 import './Search.css'
 
 const SearchResult = (props) => {
+    const [favorite, setFavorite] = useState(false)
     const { user, isAuthenticated } = useAuth0();
     const { id, role, company_name, location, logo, date_posted } = props.listing;
     const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
@@ -15,7 +17,15 @@ const SearchResult = (props) => {
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({id, 'user_sub': user.sub, company_name, role, logo, location, date_posted}
+            body: JSON.stringify({
+                'id': id, 
+                'user_sub': user.sub, 
+                'company_name': company_name, 
+                'role': role, 
+                'logo': logo, 
+                'location': location, 
+                'date_posted': date_posted
+                }
             )
         };
         fetch('http://localhost:3333/jobs/add', requestOptions)
@@ -23,6 +33,7 @@ const SearchResult = (props) => {
             .then(data => {
                 console.log(data);
             })
+        setFavorite(true);
     };
     
     return (
@@ -47,7 +58,11 @@ const SearchResult = (props) => {
                             <Button variant="primary">Details</Button>
                         </Link>
                         {!!isAuthenticated && (
-                            <Button variant="secondary" onClick={()=> _saveJob()}>Save</Button>
+                            !!favorite ? (
+                                <Button variant="success">Saved!</Button>
+                            ) : (
+                                <Button variant="secondary" onClick={()=> _saveJob()}>Save</Button>
+                            )
                         )}
                     </Card.Body>
                 </Col>
