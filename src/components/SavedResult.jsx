@@ -5,10 +5,28 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col'
 import './Search.css'
 
-const SearchResult = (props) => {
-    const { id, role, company_name, location, logo, date_posted } = props.listing;
+const SavedResult = (props) => {
+    const { id, job_id, user_sub, role, company_name, location, logo, date_posted } = props.listing;
     const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
-    console.log(props.listing)
+
+    const _deleteJob = () => {
+        console.log('Stuff to delete', id, user_sub)
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                id: id, 
+                user_sub: user_sub
+                }
+            )
+        };
+        console.log(requestOptions)
+        fetch('http://localhost:3333/jobs/delete', requestOptions)
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+            })
+    };
 
     return (
        
@@ -28,9 +46,10 @@ const SearchResult = (props) => {
                             ) : (<span>No office location</span>) }</p>
                             <DateFunction formatDate={formatDate}/>
                         </Card.Text>
-                        <Link to={`dashboard/${id}`}>
+                        <Link to={`dashboard/${job_id}`}>
                             <Button variant="primary">Details</Button>
                         </Link>
+                            <Button variant="danger" onClick={()=> _deleteJob()}>Delete</Button>
                     </Card.Body>
                 </Col>
             </div>    
@@ -40,5 +59,5 @@ const SearchResult = (props) => {
     )
 }   
 
-export default SearchResult;
+export default SavedResult;
 
