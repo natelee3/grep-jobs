@@ -13,8 +13,8 @@ ReactDOM.render(
       redirectUri={window.location.origin}
       useRefreshTokens
       cacheLocation='localstorage'
-      audience="http://localhost:3333/jobs"
-      scope="read:current_user update:current_user_metadata"
+      // audience="http://localhost:3333/jobs"
+      // scope="read:current_user update:current_user_metadata"
     >
       <App />
     </Auth0Provider>
