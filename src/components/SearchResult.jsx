@@ -18,13 +18,13 @@ const SearchResult = (props) => {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                'id': id, 
-                'user_sub': user.sub, 
-                'company_name': company_name, 
-                'role': role, 
-                'logo': logo, 
-                'location': location, 
-                'date_posted': date_posted
+                id: id, 
+                user_sub: user.sub, 
+                company_name: company_name, 
+                role: role, 
+                logo: logo, 
+                location: location, 
+                date_posted: date_posted
                 }
             )
         };
