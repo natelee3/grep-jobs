@@ -15,7 +15,7 @@ const SearchResult = (props) => {
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({'job_id': id, 'user_sub': user.sub, company_name, role, logo, location, date_posted}
+            body: JSON.stringify({id, 'user_sub': user.sub, company_name, role, logo, location, date_posted}
             )
         };
         fetch('http://localhost:3333/jobs/add', requestOptions)
@@ -24,7 +24,6 @@ const SearchResult = (props) => {
                 console.log(data);
             })
     };
-
     
     return (
        

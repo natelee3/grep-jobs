@@ -36,7 +36,6 @@ const Dashboard = (props) => {
         })();
     },[user])
 
-    
     console.log('user info: ', user)
 
     return (
