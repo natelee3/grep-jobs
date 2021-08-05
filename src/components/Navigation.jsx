@@ -6,8 +6,8 @@ import { Link } from 'react-router-dom';
 
 import './Navigation.css'
 
-const Navigation = (props) => {
-  const { loginWithRedirect, logout } = useAuth0();
+const Navigation = () => {
+  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
 
   return (
 <>
@@ -19,10 +19,29 @@ const Navigation = (props) => {
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
-        <Nav.Link href="/">Home</Nav.Link>
-        <Nav.Link href="/search">Search</Nav.Link>
-        <Link onClick={ async() => await loginWithRedirect()} href='/dashboard'>Login/Sign Up</Link>
-        <Link onClick={ () => logout({returnTo: window.location.origin})}>Logout</Link>
+        <Nav.Link>
+          < Link to='/'>Home</Link>
+        </Nav.Link>
+        <Nav.Link>
+          <Link to='/search'>Search</Link>
+        </Nav.Link>
+        {!!isAuthenticated ? (
+          <>
+            <Nav.Link>
+              <Link to='/dashboard'>Dashboard</Link>
+            </Nav.Link>
+            <Nav.Link>
+              <Link onClick={ () => logout({returnTo: window.location.origin})}>Logout</Link>
+            </Nav.Link>
+          </>
+        ) : (
+          <>
+            <Nav.Link>
+              <Link onClick={ async() => await loginWithRedirect()} href='/dashboard'>Login/Sign Up</Link>
+            </Nav.Link>
+          </>
+        )}
+        
       </Nav>
     </Navbar.Collapse>
   </Container>

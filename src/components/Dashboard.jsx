@@ -1,15 +1,17 @@
-// import { useAuth0 } from "@auth0/auth0-react";
+import { useAuth0 } from "@auth0/auth0-react";
 import './Dashboard.css';
 import SearchResult from "./SearchResult";
+import { Link } from 'react-router-dom';
 
 const Dashboard = (props) => {
-    // const { user, isAuthenticated } = useAuth0();
-    const isAuthenticated = true;
-    const user = {
-        name: 'nleepercussion@gmail.com',
-        email: 'nleepercussion@gmail.com',
-        nickname: 'Nate'
-    }
+    const { user, isAuthenticated } = useAuth0();
+    const { loginWithRedirect } = useAuth0();
+    // const isAuthenticated = true;
+    // const user = {
+    //     name: 'nleepercussion@gmail.com',
+    //     email: 'nleepercussion@gmail.com',
+    //     nickname: 'Nate'
+    // }
 
     const listing = {
         company_name: "Greenwood, Inc.",
@@ -28,16 +30,19 @@ const Dashboard = (props) => {
     }
     console.log('user info: ', user)
 
-
-
     return (
+    
         <div className="content">
-            <h1>Saved Jobs for {user.nickname}</h1>
             {!!isAuthenticated ? (
-                <div className="content">
-                   <SearchResult listing={listing}/>
-                </div>
-            ) : (<p>User not authenticated</p>)}
+                <>
+                    <h1>Saved Jobs for {user.nickname}</h1>
+                    <div className="content">
+                    <SearchResult listing={listing}/>
+                    </div>
+                </>
+            ) : (<h2>You must <Link onClick={ async() => await loginWithRedirect()} href='/dashboard' style={{color: 'blue'}}>Login/Sign Up </Link>
+             to view this page </h2>)}
+        
 
         </div>
     )

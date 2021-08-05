@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch, useRouteMatch } from 'react-router-dom';
 import { useState } from 'react';
 import SearchResult from './SearchResult';
 import ResultDetail from './ResultDetail';
@@ -6,6 +6,7 @@ import './Search.css';
 import Row from 'react-bootstrap/Row';
 
 const JobSearch = (props) => {
+    const { path, url } = useRouteMatch()
     const [searchTerms, setSearchTerms] = useState('');
     const [location, setLocation] = useState('')
     const [searchResults, setSearchResults] = useState([])
@@ -31,7 +32,7 @@ const JobSearch = (props) => {
     return (
         <Router>
             <Switch>
-                <Route exact path='/search'>
+                <Route exact path={path}>
                     <div className="content">
                         <h1>Search</h1>
                         <form onSubmit={_submitForm}>
@@ -79,7 +80,7 @@ const JobSearch = (props) => {
                         </div>
                     </div>
                 </Route>
-                <Route path='/search/:listingId'>
+                <Route path={`${url}/:listingId`}>
                     {searchResults.length > 0 ? (
                         <ResultDetail searchResults={searchResults}/>
                     ) : null}
