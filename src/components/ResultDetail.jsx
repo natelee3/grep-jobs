@@ -23,7 +23,7 @@ const ResultDetail = ({searchResults}) => {
         if (singleListing.results.length > 1) {
             const found = singleListing.results.find(job => {
                 console.log('Job', job)
-                return job.id === listing.job_id});
+                return job.id === parseInt(listing.job_id)});
             console.log('Returning single listing from find', found)
             return found;
         } else {
