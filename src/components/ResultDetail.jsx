@@ -16,11 +16,15 @@ const ResultDetail = ({searchResults}) => {
     const _fetchAndFilter = async (listing) => {
         let url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${listing.role}`;
         const singleListing = await fetch(url).then(response => response.json());
-        const found = singleListing.find(job => (job.id === listing.job_id));
-        console.log('found', found)
-        return found;
+        if (singleListing.isArray()) {
+            const found = singleListing.find(job => (job.id === listing.job_id));
+            console.log('found', found)
+            return found;
+        } else {
+            return singleListing;
+        }
+       
     };
-
 
     let result = searchResults.find((listing => {
         if (listing.id === parseInt(listingId)) {
@@ -28,7 +32,7 @@ const ResultDetail = ({searchResults}) => {
             return listing;
 
         } else if (listing.job_id === listingId) {
-            console.log('Found job id', listing.job_id, listingId, listing.role)
+            console.log('Found job id', listing.job_id, listingId)
             return _fetchAndFilter(listing);
 
         } else {
@@ -78,7 +82,12 @@ const ResultDetail = ({searchResults}) => {
         )
     } else { 
         return (
-        <h1>No details for this result</h1>
+        <>
+            <h1>No details for this result</h1>
+            <div>
+                <button type="button" className="btn btn-primary" onClick={()=> {history.goBack()}}>Back</button>
+            </div>
+        </>
         )   
     }
 };
