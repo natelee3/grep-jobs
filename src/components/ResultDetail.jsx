@@ -20,10 +20,11 @@ const ResultDetail = ({searchResults}) => {
             return listing;
 
         } else if (listing.job_id === listingId) {
-            console.log('Found job id')
+            console.log('Found job id', listing.job_id, listingId)
             let url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${listing.role}`;
             const singleListing = async () => {
                 await fetch(url).then(response => response.json());
+                console.log('Fetch results', singleListing);
                     const found = singleListing.find(job => (job.id === listing.job_id));
                     console.log('found', found)
                     return found;
