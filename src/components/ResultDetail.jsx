@@ -3,8 +3,10 @@ import { useParams, useHistory } from 'react-router-dom';
 import Badge from 'react-bootstrap/Badge';
 import DOMPurify from 'dompurify';
 import './ResultDetail.css';
+import { useState, useEffect } from 'react';
 
 const ResultDetail = ({searchResults}) => {
+    const [result, setResult] = useState(null);
     const { listingId } = useParams();
     const history = useHistory();
 
@@ -28,23 +30,24 @@ const ResultDetail = ({searchResults}) => {
         }
     };
 
-    let result = searchResults.find( async (listing => {
-        if (listing.id === parseInt(listingId)) {
-            console.log('Found id')
-            return listing;
-
-        } else if (listing.job_id === listingId) {
-            console.log('Found job id', listing.job_id, listingId)
-            const response = await _fetchAndFilter(listing);
-            console.log(response)
-            return response;
-
-        } else {
-            return console.log('Details not found')
-        }
-    }))
-
-    console.log('RESULT after conditional', result)
+    useEffect(() => {
+        (async () => {
+            searchResults.find( async (listing => {
+                if (listing.id === parseInt(listingId)) {
+                    console.log('Found id')
+                    return listing;
+        
+                }  
+                if (listing.job_id === listingId) {
+                    console.log('Found job id', listing.job_id, listingId)
+                    const response = await _fetchAndFilter(listing);
+                    console.log(response)
+                    setResult(response);
+                }
+            }))
+        })()
+    },[searchResults])
+    
     
     if (!!result) { 
         const formatDate = result.date_posted.slice(0,10).replace(/-/g, ",")
