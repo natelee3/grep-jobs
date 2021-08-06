@@ -82,7 +82,9 @@ const Search = (props) => {
                 </Route>
                 <Route path='/:listingId'>
                     {searchResults.length > 0 ? (
-                        <ResultDetail searchResults={searchResults}/>
+                        <ResultDetail 
+                            searchResults={searchResults}
+                            listings={null}/>
                     ) : null}
                 </Route>
             </Switch>

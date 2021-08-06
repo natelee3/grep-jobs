@@ -80,7 +80,9 @@ const Dashboard = (props) => {
                     </Route>
                     <Route path={`${url}/:listingId`}>
                         {listings.length > 0 ? (
-                            <ResultDetail searchResults={listings}/>
+                            <ResultDetail 
+                                searchResults={null}
+                                listings={listings}/>
                         ) : null}                    
                     </Route>
                 </Switch>

@@ -5,7 +5,7 @@ import DOMPurify from 'dompurify';
 import './ResultDetail.css';
 import { useState, useEffect } from 'react';
 
-const ResultDetail = ({searchResults}) => {
+const ResultDetail = ({searchResults, listings}) => {
     const [result, setResult] = useState(null);
     const { listingId } = useParams();
     const history = useHistory();
@@ -22,7 +22,6 @@ const ResultDetail = ({searchResults}) => {
         console.log(singleListing.results)
         if (singleListing.results.length > 1) {
             const found = singleListing.results.find(job => {
-                console.log('Job', job)
                 return job.id === parseInt(listing.job_id)});
             console.log('Returning single listing from find', found)
             return found;
@@ -34,27 +33,27 @@ const ResultDetail = ({searchResults}) => {
 
     useEffect(() => {
         (async () => {
-            const listingFoo = searchResults.find((listing => {
-                return listing.job_id === listingId;
-            }))
-            console.log(listingFoo)
-            const response = await _fetchAndFilter(listingFoo);
-            console.log('response in useEffect', response);
-            setResult(response);
-            // if (listing.id === parseInt(listingId)) {
-            //     console.log('Found id')
-            //     return listing;
-    
-            // }  
-            // if (listing.job_id === listingId) {
-            //     console.log('Found job id', listing.job_id, listingId)
-            //     const response = await _fetchAndFilter(listing);
-            //     console.log(response)
-            //     setResult(response);
-            //     return response;
-            // }
+            //Coming from Dashboard, listings object contains all saved jobs from database
+            if (!!listings) {
+                console.log('We have listings!')
+                const dashboardListing = listings.find(listing => {
+                    return listing.job_id = listingId;
+                })
+                const response = await _fetchAndFilter(dashboardListing);
+                console.log('Listings response', response);
+                setResult(response);
+            }
+            //Coming from Search, searchResults object contains all search results
+            if (!!searchResults) {
+                console.log('We have searchResults!');
+                const searchListing = searchResults.find(listing => {
+                    return listing.id === parseInt(listingId)
+                })
+                console.log(searchListing);
+                setResult(searchListing);
+            }
         })()
-    },[searchResults, listingId])
+    },[searchResults, listings, listingId])
     
     
     if (!!result) { 
