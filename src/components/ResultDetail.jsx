@@ -37,7 +37,7 @@ const ResultDetail = ({searchResults, listings}) => {
             if (!!listings) {
                 console.log('We have listings!')
                 const dashboardListing = listings.find(listing => {
-                    return listing.job_id = listingId;
+                    return listing.job_id === listingId;
                 })
                 const response = await _fetchAndFilter(dashboardListing);
                 console.log('Listings response', response);
