@@ -68,7 +68,7 @@ const Dashboard = (props) => {
                     </Route>
                     <Route path={`${url}/:listingId`}>
                         {listings.length > 0 ? (
-                            <ResultDetail searchResults={localStorage.getItem('savedListings')}/>
+                            <ResultDetail searchResults={listings}/>
                         ) : null}                    
                     </Route>
                 </Switch>
