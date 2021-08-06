@@ -32,21 +32,24 @@ const ResultDetail = ({searchResults}) => {
 
     useEffect(() => {
         (async () => {
-            searchResults.find((listing => {
-                if (listing.id === parseInt(listingId)) {
-                    console.log('Found id')
-                    return listing;
-        
-                }  
-                if (listing.job_id === listingId) {
-                    console.log('Found job id', listing.job_id, listingId)
-                    const response = _fetchAndFilter(listing);
-                    console.log(response)
-                    setResult(response);
-                    return response;
-                }
-                return null;
+            const listingFoo = searchResults.find((listing => {
+                return listing.job_id === listingId;
             }))
+            const response = await _fetchAndFilter(listingFoo);
+            console.log('resonse', response);
+            setResult(response);
+            // if (listing.id === parseInt(listingId)) {
+            //     console.log('Found id')
+            //     return listing;
+    
+            // }  
+            // if (listing.job_id === listingId) {
+            //     console.log('Found job id', listing.job_id, listingId)
+            //     const response = await _fetchAndFilter(listing);
+            //     console.log(response)
+            //     setResult(response);
+            //     return response;
+            // }
         })()
     },[searchResults, listingId])
     
