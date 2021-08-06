@@ -21,7 +21,9 @@ const ResultDetail = ({searchResults}) => {
         const singleListing = await fetch(url).then(response => response.json());
         console.log(singleListing.results)
         if (singleListing.results.length > 1) {
-            const found = singleListing.results.find(job => (job.id === listing.job_id));
+            const found = singleListing.results.find(job => {
+                console.log('Job', job)
+                return job.id === listing.job_id});
             console.log('Returning single listing from find', found)
             return found;
         } else {
