@@ -6,7 +6,7 @@ import './Search.css';
 import Row from 'react-bootstrap/Row';
 
 const JobSearch = (props) => {
-    const { path } = useRouteMatch()
+    const { path, url } = useRouteMatch()
     const [searchTerms, setSearchTerms] = useState('');
     const [location, setLocation] = useState('')
     const [searchResults, setSearchResults] = useState([])
@@ -81,7 +81,7 @@ const JobSearch = (props) => {
                         </div>
                     </div>
                 </Route>
-                <Route path={`${path}/:listingId`}>
+                <Route path={`${url}/:listingId`}>
                     {searchResults.length > 0 ? (
                         <ResultDetail searchResults={searchResults}/>
                     ) : null}
