@@ -1,7 +1,8 @@
 import DateFunction from "./DateFunction";
 import { useParams, useHistory } from 'react-router-dom';
 import Badge from 'react-bootstrap/Badge';
-import DOMPurify from 'dompurify'
+import DOMPurify from 'dompurify';
+import './ResultDetail.css';
 
 const ResultDetail = ({searchResults}) => {
     const { listingId } = useParams();
