@@ -56,7 +56,7 @@ const SearchResult = (props) => {
                             ) : (<span>No office location</span>) }</p>
                             <DateFunction formatDate={formatDate}/>
                         </Card.Text>
-                        <Link to={`search/${id}`}>
+                        <Link to={`/${id}`}>
                             <Button variant="primary">Details</Button>
                         </Link>
                         {!!isAuthenticated && (
