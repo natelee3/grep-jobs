@@ -1,17 +1,13 @@
 import DateFunction from './DateFunction';
-import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col'
 import './Search.css'
-import { useHistory } from 'react-router-dom';
 
 const SavedResult = (props) => {
-    const { user } = useAuth0();
     const { id, job_id, role, company_name, location, logo, date_posted } = props.listing;
     const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
-    const history = useHistory();
 
     
 

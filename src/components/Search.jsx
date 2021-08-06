@@ -6,7 +6,7 @@ import './Search.css';
 import Row from 'react-bootstrap/Row';
 
 const JobSearch = (props) => {
-    const { path, url } = useRouteMatch()
+    const { path } = useRouteMatch()
     const [searchTerms, setSearchTerms] = useState('');
     const [location, setLocation] = useState('')
     const [searchResults, setSearchResults] = useState([])
