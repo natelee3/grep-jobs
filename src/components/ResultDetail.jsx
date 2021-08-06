@@ -13,7 +13,15 @@ const ResultDetail = ({searchResults}) => {
         if (newWindow) newWindow.opener = null
       };
 
-    
+    const _fetchAndFilter = async (listing) => {
+        let url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${listing.role}`;
+        const singleListing = await fetch(url).then(response => response.json());
+        const found = singleListing.find(job => (job.id === listing.job_id));
+        console.log('found', found)
+        return found;
+    };
+
+
     let result = searchResults.find((listing => {
         if (listing.id === parseInt(listingId)) {
             console.log('Found id')
@@ -21,15 +29,8 @@ const ResultDetail = ({searchResults}) => {
 
         } else if (listing.job_id === listingId) {
             console.log('Found job id', listing.job_id, listingId, listing.role)
-            let url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${listing.role}`;
-            const singleListing = async () => {
-                await fetch(url).then(response => response.json());
-                console.log('Fetch results', singleListing);
-                    const found = singleListing.find(job => (job.id === listing.job_id));
-                    console.log('found', found)
-                    return found;
-                };
-                return singleListing;
+            return _fetchAndFilter(listing);
+
         } else {
             return console.log('Details not found')
         }
