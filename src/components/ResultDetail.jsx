@@ -14,7 +14,7 @@ const ResultDetail = ({searchResults}) => {
       }
     
     let result = searchResults.find((listing => {
-        console.log(listing.id, listingId)
+        console.log(searchResults, listingId)
         if (listing.id === parseInt(listingId || listing.job_id === parseInt(listingId))) {
             return listing;
         } else {
