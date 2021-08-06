@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Switch, useRouteMatch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { useState } from 'react';
 import SearchResult from './SearchResult';
 import ResultDetail from './ResultDetail';
