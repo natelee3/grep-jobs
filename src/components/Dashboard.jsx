@@ -36,10 +36,6 @@ const Dashboard = (props) => {
         })();
     },[user])
 
-    // const _getListings = async (id) => {
-    //     setListings(listings => listings.filter(listing => listing.id !== id))
-    // };
-
     const _deleteJob = async (id) => {
         const requestOptions = {
             method: 'POST',
@@ -60,8 +56,6 @@ const Dashboard = (props) => {
             }
     };
 
-    console.log('user info: ', user)
-
     return (
         <>
             <Router>
@@ -75,7 +69,7 @@ const Dashboard = (props) => {
                                         {listings.map(listing => (
                                             <SavedResult 
                                                 listing={listing}
-                                                onUpdate={_deleteJob}
+                                                deleteJob={_deleteJob}
                                                 />
                                         ))}
                                     </div>

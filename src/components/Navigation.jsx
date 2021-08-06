@@ -20,10 +20,7 @@ const Navigation = () => {
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="me-auto">
         <Nav.Link>
-          < Link to='/'>Home</Link>
-        </Nav.Link>
-        <Nav.Link>
-          <Link to='/search'>Search</Link>
+          <Link to='/search'>Home</Link>
         </Nav.Link>
         {!!isAuthenticated ? (
           <>

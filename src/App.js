@@ -20,9 +20,6 @@ function App() {
           <Route exact path='/'>
             <Search />
           </Route>
-          {/* <Route path='/search'>
-            <Search />
-          </Route> */}
           <Route path='/dashboard'>
             <Dashboard />
           </Route>
