@@ -54,7 +54,7 @@ const Dashboard = (props) => {
         const deleteResponse = await fetch('http://localhost:3333/jobs/delete', requestOptions)
             .then(response => response)
             console.log('Delete response', deleteResponse)
-            if (deleteResponse.rowCount === 1) {
+            if (true) {
                 const url = `http://localhost:3333/jobs/${user.sub.slice(6)}`
                 const listings = await fetch(url).then(response => response.json());
                 setListings(listings)
