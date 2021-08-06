@@ -28,14 +28,15 @@ const ResultDetail = ({searchResults}) => {
         }
     };
 
-    let result = searchResults.find((listing => {
+    let result = searchResults.find( async (listing => {
         if (listing.id === parseInt(listingId)) {
             console.log('Found id')
             return listing;
 
         } else if (listing.job_id === listingId) {
             console.log('Found job id', listing.job_id, listingId)
-            const response = _fetchAndFilter(listing)
+            const response = await _fetchAndFilter(listing);
+            console.log(response)
             return response;
 
         } else {
