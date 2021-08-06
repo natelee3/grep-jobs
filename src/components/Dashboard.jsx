@@ -77,7 +77,7 @@ const Dashboard = (props) => {
                                         {listings.map(listing => (
                                             <SavedResult 
                                                 listing={listing}
-                                                onUpdate={()=>_deleteJob()}
+                                                onUpdate={_deleteJob}
                                                 />
                                         ))}
                                     </div>

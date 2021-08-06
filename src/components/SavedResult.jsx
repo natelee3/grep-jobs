@@ -7,6 +7,7 @@ import './Search.css'
 
 const SavedResult = (props) => {
     const { id, job_id, role, company_name, location, logo, date_posted } = props.listing;
+    console.log({id})
     const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
 
     
