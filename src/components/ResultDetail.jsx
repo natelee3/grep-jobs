@@ -32,7 +32,7 @@ const ResultDetail = ({searchResults}) => {
 
     useEffect(() => {
         (async () => {
-            searchResults.find( async (listing => {
+            searchResults.find((listing => {
                 if (listing.id === parseInt(listingId)) {
                     console.log('Found id')
                     return listing;
@@ -40,13 +40,15 @@ const ResultDetail = ({searchResults}) => {
                 }  
                 if (listing.job_id === listingId) {
                     console.log('Found job id', listing.job_id, listingId)
-                    const response = await _fetchAndFilter(listing);
+                    const response = _fetchAndFilter(listing);
                     console.log(response)
                     setResult(response);
+                    return response;
                 }
+                return null;
             }))
         })()
-    },[searchResults])
+    },[searchResults, listingId])
     
     
     if (!!result) { 
