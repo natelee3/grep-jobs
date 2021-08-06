@@ -30,7 +30,9 @@ const SavedResult = (props) => {
             .then(data => {
                 console.log(data);
             })
-            props.onUpdate(id);
+            if (response.status === 200) {
+                props.onUpdate(id);
+            }
     };
 
     return (
