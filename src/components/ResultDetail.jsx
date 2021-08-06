@@ -11,16 +11,24 @@ const ResultDetail = ({searchResults}) => {
     const openInNewTab = (url) => {
         const newWindow = window.open(url, '_blank', 'noopener,noreferrer')
         if (newWindow) newWindow.opener = null
-      }
+      };
+
     
     let result = searchResults.find((listing => {
-        console.log(searchResults, listingId)
         if (listing.id === parseInt(listingId)) {
             console.log('Found id')
             return listing;
+
         } else if (listing.job_id === listingId) {
             console.log('Found job id')
-            return listing;
+            let url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${listing.role}`;
+            const singleListing = async () => {
+                await fetch(url).then(response => response.json());
+                    const found = singleListing.find(job => (job.id === listing.job_id));
+                    console.log('found', found)
+                    return found;
+                };
+                return listing = singleListing;
         } else {
             return console.log('Details not found')
         }
