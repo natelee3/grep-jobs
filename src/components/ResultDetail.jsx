@@ -14,6 +14,7 @@ const ResultDetail = ({searchResults}) => {
       }
     
     let result = searchResults.find((listing => {
+        console.log(listing.id, listingId)
         if (listing.id === parseInt(listingId)) {
             return listing;
         } else {
@@ -63,7 +64,7 @@ const ResultDetail = ({searchResults}) => {
         )
     } else { 
         return (
-        <h1>Sorry!!</h1>
+        <h1>No details for this result</h1>
         )   
     }
 };

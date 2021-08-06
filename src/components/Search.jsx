@@ -81,7 +81,7 @@ const JobSearch = (props) => {
                         </div>
                     </div>
                 </Route>
-                <Route path={`/:listingId`}>
+                <Route path={`${path}/:listingId`}>
                     {searchResults.length > 0 ? (
                         <ResultDetail searchResults={searchResults}/>
                     ) : null}
