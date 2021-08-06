@@ -16,7 +16,7 @@ const ResultDetail = ({searchResults}) => {
       };
 
     const _fetchAndFilter = async (listing) => {
-        console.log('Running fetchFilter function')
+        console.log('Running fetchFilter function', listing)
         let url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${listing.role}`;
         const singleListing = await fetch(url).then(response => response.json());
         console.log(singleListing.results)
@@ -35,8 +35,9 @@ const ResultDetail = ({searchResults}) => {
             const listingFoo = searchResults.find((listing => {
                 return listing.job_id === listingId;
             }))
+            console.log(listingFoo)
             const response = await _fetchAndFilter(listingFoo);
-            console.log('resonse', response);
+            console.log('response in useEffect', response);
             setResult(response);
             // if (listing.id === parseInt(listingId)) {
             //     console.log('Found id')
