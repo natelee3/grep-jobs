@@ -1,4 +1,5 @@
 import DateFunction from './DateFunction';
+import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -6,17 +7,18 @@ import Col from 'react-bootstrap/Col'
 import './Search.css'
 
 const SavedResult = (props) => {
-    const { id, job_id, user_sub, role, company_name, location, logo, date_posted } = props.listing;
+    const { user } = useAuth0();
+    const { id, job_id, role, company_name, location, logo, date_posted } = props.listing;
     const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
 
     const _deleteJob = () => {
-        console.log('Stuff to delete', id, user_sub)
+        console.log('Stuff to delete', id, user.sub)
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 id: id, 
-                user_sub: user_sub
+                user_sub: user.sub.slice(6)
                 }
             )
         };

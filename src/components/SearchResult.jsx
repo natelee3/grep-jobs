@@ -20,7 +20,7 @@ const SearchResult = (props) => {
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 id: id, 
-                user_sub: user.sub, 
+                user_sub: user.sub.slice(6), 
                 company_name: company_name, 
                 role: role, 
                 logo: logo, 
