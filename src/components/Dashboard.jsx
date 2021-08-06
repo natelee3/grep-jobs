@@ -36,9 +36,9 @@ const Dashboard = (props) => {
         })();
     },[user])
 
-    const _getListings = async (id) => {
-        setListings(listings => listings.filter(listing => listing.id !== id))
-    };
+    // const _getListings = async (id) => {
+    //     setListings(listings => listings.filter(listing => listing.id !== id))
+    // };
 
 
 
@@ -57,7 +57,8 @@ const Dashboard = (props) => {
                                         {listings.map(listing => (
                                             <SavedResult 
                                                 listing={listing}
-                                                onUpdate={()=>_getListings()}/>
+                                                // onUpdate={()=>_getListings()}
+                                                />
                                         ))}
                                     </div>
                                 </>

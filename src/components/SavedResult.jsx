@@ -5,13 +5,13 @@ import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col'
 import './Search.css'
-// import { useHistory } from 'react-router-dom';
+import { useHistory } from 'react-router-dom';
 
 const SavedResult = (props) => {
     const { user } = useAuth0();
     const { id, job_id, role, company_name, location, logo, date_posted } = props.listing;
     const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
-    // const history = useHistory();
+    const history = useHistory();
 
     const _deleteJob = async () => {
         console.log('Stuff to delete', id, user.sub)
@@ -25,13 +25,10 @@ const SavedResult = (props) => {
             )
         };
         console.log(requestOptions)
-        const response = await fetch('http://localhost:3333/jobs/delete', requestOptions)
+        const deleteResponse = await fetch('http://localhost:3333/jobs/delete', requestOptions)
             .then(response => response.json())
-            .then(data => {
-                console.log(data);
-            })
-            if (response.status === 200) {
-                props.onUpdate(id);
+            if (deleteResponse.status === 200) {
+                history.push('/dashboard');
             }
     };
 
