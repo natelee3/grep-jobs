@@ -14,14 +14,16 @@ const ResultDetail = ({searchResults}) => {
       };
 
     const _fetchAndFilter = async (listing) => {
+        console.log('Running fetchFilter function')
         let url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${listing.role}`;
         const singleListing = await fetch(url).then(response => response.json());
-        console.log(singleListing)
+        console.log(singleListing.results)
         if (singleListing.results.length > 1) {
             const found = singleListing.results.find(job => (job.id === listing.job_id));
-            console.log('found', found)
+            console.log('Returning single listing from find', found)
             return found;
         } else {
+            console.log('Returning single result')
             return singleListing.results;
         }
     };
@@ -39,6 +41,8 @@ const ResultDetail = ({searchResults}) => {
             return console.log('Details not found')
         }
     }))
+
+    console.log('RESULT after conditional', result)
     
     if (!!result) { 
         const formatDate = result.date_posted.slice(0,10).replace(/-/g, ",")
