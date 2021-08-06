@@ -35,7 +35,8 @@ const ResultDetail = ({searchResults}) => {
 
         } else if (listing.job_id === listingId) {
             console.log('Found job id', listing.job_id, listingId)
-            return _fetchAndFilter(listing);
+            const response = _fetchAndFilter(listing)
+            return response;
 
         } else {
             return console.log('Details not found')
