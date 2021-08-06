@@ -28,7 +28,7 @@ const SavedResult = (props) => {
             .then(data => {
                 console.log(data);
             })
-            props.onUpdate(job_id);
+            props.onUpdate(id);
     };
 
     return (
