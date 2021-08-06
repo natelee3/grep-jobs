@@ -36,11 +36,13 @@ const Dashboard = (props) => {
         })();
     },[user])
 
-    const _getListings = async () => {
+    const _getListings = async (jobId) => {
         const url = `http://localhost:3333/jobs/${user.sub.slice(6)}`
-        const listings = await fetch(url).then(response => response.json());
-        setListings(listings)
+        await fetch(url).then(response => response.json());
+        setListings(listings => listings.filter(listing => listing.job_id !== jobId))
     };
+
+
 
     console.log('user info: ', user)
 
