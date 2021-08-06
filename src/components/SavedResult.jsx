@@ -32,7 +32,7 @@ const SavedResult = (props) => {
                         <Link to={`dashboard/${job_id}`}>
                             <Button variant="primary">Details</Button>
                         </Link>
-                            <Button variant="danger" onClick={()=> props.onUpdate(id)}>Delete</Button>
+                            <Button variant="danger" onClick={(id)=> props.onUpdate(id)}>Delete</Button>
                     </Card.Body>
                 </Col>
             </div>    
