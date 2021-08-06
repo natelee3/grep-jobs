@@ -5,8 +5,7 @@ import ResultDetail from './ResultDetail';
 import './Search.css';
 import Row from 'react-bootstrap/Row';
 
-const JobSearch = (props) => {
-    const { path, url } = useRouteMatch()
+const Search = (props) => {
     const [searchTerms, setSearchTerms] = useState('');
     const [location, setLocation] = useState('')
     const [searchResults, setSearchResults] = useState([])
@@ -32,7 +31,7 @@ const JobSearch = (props) => {
     return (
         <Router>
             <Switch>
-                <Route exact path={path}>
+                <Route exact path='/'>
                     <div className="content">
                         <h1>Search</h1>
                         <h4>Let us help you find your next position. Search by keyword and/or city to return active listings.</h4>
@@ -81,7 +80,7 @@ const JobSearch = (props) => {
                         </div>
                     </div>
                 </Route>
-                <Route path={`${url}/:listingId`}>
+                <Route path='/:listingId'>
                     {searchResults.length > 0 ? (
                         <ResultDetail searchResults={searchResults}/>
                     ) : null}
@@ -92,4 +91,4 @@ const JobSearch = (props) => {
     )
 };
 
-export default JobSearch;
+export default Search;
