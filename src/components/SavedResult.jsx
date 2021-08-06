@@ -11,6 +11,13 @@ const SavedResult = (props) => {
     const { id, job_id, role, company_name, location, logo, date_posted } = props.listing;
     const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
 
+    const _refreshListings = async () => {
+        const url = `http://localhost:3333/jobs/${user.sub.slice(6)}`
+            const listings = await fetch(url).then(response => response.json());
+            // setListings(listings)
+            localStorage.setItem('savedListings', listings)
+    };
+
     const _deleteJob = () => {
         console.log('Stuff to delete', id, user.sub)
         const requestOptions = {
@@ -28,6 +35,7 @@ const SavedResult = (props) => {
             .then(data => {
                 console.log(data);
             })
+        _refreshListings();
     };
 
     return (
