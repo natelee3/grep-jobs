@@ -41,6 +41,7 @@ const Dashboard = (props) => {
     // };
 
     const _deleteJob = async (id) => {
+        console.log(id)
         const requestOptions = {
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
