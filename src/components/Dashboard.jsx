@@ -36,6 +36,12 @@ const Dashboard = (props) => {
         })();
     },[user])
 
+    const _getListings = async () => {
+        const url = `http://localhost:3333/jobs/${user.sub.slice(6)}`
+        const listings = await fetch(url).then(response => response.json());
+        setListings(listings)
+    };
+
     console.log('user info: ', user)
 
     return (
@@ -49,7 +55,9 @@ const Dashboard = (props) => {
                                     <h1>Saved Jobs for {user.nickname}</h1>
                                     <div className="content">
                                         {listings.map(listing => (
-                                            <SavedResult listing={listing}/>
+                                            <SavedResult 
+                                                listing={listing}
+                                                onUpdate={()=>_getListings()}/>
                                         ))}
                                     </div>
                                 </>
