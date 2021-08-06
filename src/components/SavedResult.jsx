@@ -13,24 +13,7 @@ const SavedResult = (props) => {
     const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
     const history = useHistory();
 
-    const _deleteJob = async () => {
-        console.log('Stuff to delete', id, user.sub)
-        const requestOptions = {
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify({
-                id: id, 
-                user_sub: user.sub.slice(6)
-                }
-            )
-        };
-        console.log(requestOptions)
-        const deleteResponse = await fetch('http://localhost:3333/jobs/delete', requestOptions)
-            .then(response => response.json())
-            if (deleteResponse.status === 200) {
-                history.push('/dashboard');
-            }
-    };
+    
 
     return (
        
@@ -53,7 +36,7 @@ const SavedResult = (props) => {
                         <Link to={`dashboard/${job_id}`}>
                             <Button variant="primary">Details</Button>
                         </Link>
-                            <Button variant="danger" onClick={()=> _deleteJob()}>Delete</Button>
+                            <Button variant="danger" onClick={()=> props.onUpdate(id)}>Delete</Button>
                     </Card.Body>
                 </Col>
             </div>    

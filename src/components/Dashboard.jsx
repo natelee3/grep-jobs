@@ -40,7 +40,26 @@ const Dashboard = (props) => {
     //     setListings(listings => listings.filter(listing => listing.id !== id))
     // };
 
+    const _deleteJob = async (id) => {
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                id: id, 
+                user_sub: user.sub.slice(6)
+                }
+            )
+        };
 
+        console.log(requestOptions)
+        const deleteResponse = await fetch('http://localhost:3333/jobs/delete', requestOptions)
+            .then(response => response.json())
+            if (deleteResponse.status === 200) {
+                const url = `http://localhost:3333/jobs/${user.sub.slice(6)}`
+                const listings = await fetch(url).then(response => response.json());
+                setListings(listings)
+            }
+    };
 
     console.log('user info: ', user)
 
@@ -57,7 +76,7 @@ const Dashboard = (props) => {
                                         {listings.map(listing => (
                                             <SavedResult 
                                                 listing={listing}
-                                                // onUpdate={()=>_getListings()}
+                                                onUpdate={()=>_deleteJob()}
                                                 />
                                         ))}
                                     </div>
