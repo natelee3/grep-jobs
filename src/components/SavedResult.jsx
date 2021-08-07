@@ -1,4 +1,5 @@
 import DateFunction from './DateFunction';
+import ReactImageFallback from 'react-image-fallback';
 import { Link } from 'react-router-dom';
 import Card from 'react-bootstrap/Card';
 import Button from 'react-bootstrap/Button';
@@ -15,9 +16,9 @@ const SavedResult = (props) => {
             <div className="row">
                 <Col className="d-flex align-self-center">
                     <div className="img-wrapper d-block">
-                        {!!logo ? (<Card.Img 
+                        {!!logo ? (<ReactImageFallback
                                         src={logo} 
-                                        onError={(e)=> {e.target.onerror = null; e.target.src="/logo192.png"}}
+                                        fallbackImage="/logo192.png"
                                         className="card-img" />) : (<p>No image found</p>)}
                     </div>
                 </Col>
