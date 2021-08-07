@@ -17,9 +17,9 @@ const SavedResult = (props) => {
 
     const deleteAndClose = () => {
         props.deleteJob();
-        handleClose();
+        setShow(false);
     };
-    
+
     return (
         <>
         <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
