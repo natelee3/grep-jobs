@@ -15,6 +15,11 @@ const SavedResult = (props) => {
     const handleClose = () => setShow(false);
     const handleOpen = () => setShow(true);
 
+    const deleteAndClose = () => {
+        props.deleteJob();
+        handleClose();
+    };
+    
     return (
         <>
         <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
@@ -26,7 +31,7 @@ const SavedResult = (props) => {
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>Cancel</Button>
-                <Button variant="danger" onClick={() => props.deleteJob(id)}>Delete Job</Button>
+                <Button variant="danger" onClick={() => deleteAndClose()}>Delete Job</Button>
             </Modal.Footer>
         </Modal>
 
