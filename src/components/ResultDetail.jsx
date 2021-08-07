@@ -98,12 +98,12 @@ const ResultDetail = ({searchResults, listings}) => {
         )
     } else { 
         return (
-        <>
-            <h1>No details for this result</h1>
+        <div className="content">
+            <h1>Loading details...</h1>
             <div>
                 <button type="button" className="btn btn-primary" onClick={()=> {history.goBack()}}>Back</button>
             </div>
-        </>
+        </div>
         )   
     }
 };
