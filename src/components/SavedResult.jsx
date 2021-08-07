@@ -15,7 +15,10 @@ const SavedResult = (props) => {
             <div className="row">
                 <Col className="d-flex align-self-center">
                     <div className="img-wrapper d-block">
-                        {!!logo ? (<Card.Img src={logo} className="card-img" />) : (<p>No image found</p>)}
+                        {!!logo ? (<Card.Img 
+                                        src={logo} 
+                                        onError={(e)=> {e.target.onerror = null; e.target.src="/logo192.png"}}
+                                        className="card-img" />) : (<p>No image found</p>)}
                     </div>
                 </Col>
                 <Col xs={9}>
