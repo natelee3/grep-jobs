@@ -1,4 +1,5 @@
 import DateFunction from './DateFunction';
+import ReactImageFallback from 'react-image-fallback';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useAuth0 } from '@auth0/auth0-react';
@@ -42,10 +43,13 @@ const SearchResult = (props) => {
        
         <Card key={id} style={{ width: '90vw' }}>
             <div className="row">
-                <Col className="d-flex align-self-center">
+                <Col className="d-flex align-self-center justify-content-center">
                     <div className="img-wrapper d-block">
-                        {!!logo ? (<Card.Img src={logo} className="card-img" />) : (<p>No image found</p>)}
-                    </div>
+                    <ReactImageFallback
+                                        src={logo} 
+                                        fallbackImage="/logo192.png"
+                                        className="card-img" 
+                        />                    </div>
                 </Col>
                 <Col xs={9}>
                     <Card.Body className="align-left">
