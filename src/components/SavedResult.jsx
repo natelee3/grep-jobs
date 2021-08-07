@@ -16,8 +16,8 @@ const SavedResult = (props) => {
     const handleOpen = () => setShow(true);
 
     const deleteAndClose = () => {
-        setShow(false);
         props.deleteJob();
+        setShow(false);
     };
 
     return (
