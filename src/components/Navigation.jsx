@@ -19,7 +19,7 @@ const Navigation = () => {
     </Navbar.Brand>
     {!!isAuthenticated ? (
       <Navbar.Toggle aria-controls="basic-navbar-nav">
-        <Image src={user.picture} alt="avatar" fluid roundedCircle/>
+        <Image src={user.picture} alt="avatar" className='user-avatar' fluid roundedCircle/>
       </Navbar.Toggle>
     ) : (
       <Navbar.Toggle aria-controls="basic-navbar-nav"/>

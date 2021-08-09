@@ -40,6 +40,7 @@ Built with the PERN stack -
 - react-bootstrap
 - bootstrap
 - dompurify
+- react-image-fallback
 
 ### Public APIs
 - [FindWork](https://findwork.dev)
