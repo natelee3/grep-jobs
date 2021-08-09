@@ -8,7 +8,7 @@ import Image from 'react-bootstrap/Image';
 import './Navigation.css'
 
 const Navigation = () => {
-  const { loginWithRedirect, logout, isAuthenticated } = useAuth0();
+  const { loginWithRedirect, logout, isAuthenticated, user } = useAuth0();
 
   return (
 <>
