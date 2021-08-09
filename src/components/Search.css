@@ -63,5 +63,7 @@ span.badge {
 }
 
 .applied-checkbox {
-    color: #28A745;
+    color: var(--primary);
+    padding-top: 10px;
+    padding-right: 5px;
 }
