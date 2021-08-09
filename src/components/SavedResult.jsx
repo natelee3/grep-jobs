@@ -14,12 +14,15 @@ const SavedResult = (props) => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleOpen = () => setShow(true);
-    const [appliedBool, setAppliedBool] = useState(applied);
 
     const deleteAndClose = () => {
         props.deleteJob(id);
         handleClose();
     };
+
+    const changeApplied = () => {
+        props.updateJob(id, applied)
+    }
     
     console.log('Value of applied from database for', company_name, applied)
     console.log('AppliedBool for', company_name, applied)
@@ -67,7 +70,7 @@ const SavedResult = (props) => {
                 <Col xs={2}>
                     <form>
                         <label className="applied-checkbox"> Applied
-                            <input type="checkbox" checked={appliedBool} onChange={(e)=> setAppliedBool(!appliedBool)} />
+                            <input type="checkbox" checked={applied} onChange={changeApplied} />
                         </label>
                     </form>
                 </Col>

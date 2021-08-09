@@ -56,6 +56,27 @@ const Dashboard = (props) => {
             }
     };
 
+    const _updateJob = async (id, applied) => {
+        const requestOptions = {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({
+                id: id, 
+                applied: applied,
+                user_sub: user.sub.slice(6)
+                }
+            )
+        };
+
+        const updateResponse = await fetch('http://localhost:3333/jobs/update', requestOptions)
+            .then(response => response)
+            if (updateResponse.status === 200) {
+                const url = `http://localhost:3333/jobs/${user.sub.slice(6)}`
+                const listings = await fetch(url).then(response => response.json());
+                setListings(listings)
+            }
+    };
+
     return (
         <>
             <Router>
@@ -70,6 +91,7 @@ const Dashboard = (props) => {
                                             <SavedResult 
                                                 listing={listing}
                                                 deleteJob={_deleteJob}
+                                                updateJob={_updateJob}
                                                 />
                                         ))}
                                     </div>
