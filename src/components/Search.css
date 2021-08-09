@@ -57,3 +57,7 @@ a > * {
   .btn {
       margin-right: 5px;
   }
+
+  .applied-checkbox {
+      color: #28A745;
+  }

@@ -9,7 +9,7 @@ import Col from 'react-bootstrap/Col'
 import './Search.css'
 
 const SavedResult = (props) => {
-    const { id, job_id, role, company_name, location, logo, date_posted } = props.listing;
+    const { id, job_id, role, company_name, location, logo, date_posted, applied } = props.listing;
     const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -37,7 +37,7 @@ const SavedResult = (props) => {
 
         <Card key={id} style={{ width: '90vw' }}>
             <div className="row justify-content-center">
-                <Col className="d-flex align-self-center justify-content-center">
+                <Col xs={3} className="d-flex align-self-center justify-content-center">
                     <div className="img-wrapper d-block">
                         <ReactImageFallback
                                         src={logo} 
@@ -46,7 +46,7 @@ const SavedResult = (props) => {
                         />
                     </div>
                 </Col>
-                <Col xs={9}>
+                <Col xs={7}>
                     <Card.Body className="align-left">
                         <Card.Title><b>{role}</b></Card.Title>
                         <Card.Text>
@@ -60,6 +60,13 @@ const SavedResult = (props) => {
                         </Link>
                             <Button variant="danger" onClick={()=> handleOpen()}>Delete</Button>
                     </Card.Body>
+                </Col>
+                <Col xs={2}>
+                    <form>
+                        <label className="applied-checkbox"> Applied
+                            <input type="checkbox" value={applied} />
+                        </label>
+                    </form>
                 </Col>
             </div>    
         </Card>

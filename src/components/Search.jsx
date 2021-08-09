@@ -11,11 +11,10 @@ const Search = (props) => {
     const [searchResults, setSearchResults] = useState([]);
     const [pastResults, setPastResults] = useState([]);
     const [noResults, setNoResults] = useState(false);
-    const [remote, setRemote] = useState(false);
+    const [remote, setRemote] = useState(true);
 
 
     const _fetchResults = async () => {
-        setNoResults(false);
         const url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${searchTerms}&location=${location}&remote=${remote}&sort_by=relevance`;
         await fetch(url)
             .then(response => response.json())
