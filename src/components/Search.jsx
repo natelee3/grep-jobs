@@ -13,7 +13,7 @@ const Search = (props) => {
 
 
     const _fetchResults = async () => {
-        const url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${searchTerms}&location=${location}`;
+        const url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${searchTerms}&location=${location}&sort_by=relevance`;
         await fetch(url)
             .then(response => response.json())
             .then(data => setSearchResults(data.results))
@@ -40,6 +40,7 @@ const Search = (props) => {
                                 <input 
                                     type="text"
                                     placeholder="🔎 Search all jobs"
+                                    data-testid="searchTerms"
                                     value={searchTerms}
                                     onChange={(e) => {
                                         setSearchTerms(e.target.value)
@@ -50,6 +51,7 @@ const Search = (props) => {
                                 <input 
                                     type="text"
                                     placeholder="📍 Located anywhere"
+                                    data-testid="locationText"
                                     value={location}
                                     onChange={(e) => {
                                         setLocation(e.target.value)
@@ -58,6 +60,7 @@ const Search = (props) => {
                             </label>
                             <input 
                                 className="btn btn-sm btn-primary" 
+                                data-testid="searchButton"
                                 type="submit" 
                                 value="Search" />
                         </form>
