@@ -67,7 +67,7 @@ const SavedResult = (props) => {
                 <Col xs={2}>
                     <form>
                         <label className="applied-checkbox"> Applied
-                            <input type="checkbox" value={appliedBool} onChange={(e)=> setAppliedBool(!appliedBool)} />
+                            <input type="checkbox" checked={appliedBool} onChange={(e)=> setAppliedBool(!appliedBool)} />
                         </label>
                     </form>
                 </Col>
