@@ -7,15 +7,16 @@ import Row from 'react-bootstrap/Row';
 
 const Search = (props) => {
     const [searchTerms, setSearchTerms] = useState('');
-    const [location, setLocation] = useState('')
-    const [searchResults, setSearchResults] = useState([])
-    const [pastResults, setPastResults] = useState([])
-    const [noResults, setNoResults] = useState(false)
+    const [location, setLocation] = useState('');
+    const [searchResults, setSearchResults] = useState([]);
+    const [pastResults, setPastResults] = useState([]);
+    const [noResults, setNoResults] = useState(false);
+    const [remote, setRemote] = useState(false);
 
 
     const _fetchResults = async () => {
         setNoResults(false);
-        const url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${searchTerms}&location=${location}&sort_by=relevance`;
+        const url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${searchTerms}&location=${location}&remote=${remote}&sort_by=relevance`;
         await fetch(url)
             .then(response => response.json())
             .then(data => {
@@ -63,6 +64,13 @@ const Search = (props) => {
                                     }}
                                 />
                             </label>
+                            <label> 
+                                    <input 
+                                        type="checkbox"
+                                        name="remote"
+                                        onChange={(e) => setRemote(!remote)}/>
+                                        Include remote? 
+                            </label><br/>
                             <input 
                                 className="btn btn-sm btn-primary" 
                                 data-testid="searchButton"

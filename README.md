@@ -11,36 +11,35 @@ Active development: August 3-10, 2021
 
 Live Deployment: [grepjobs.netlify.app](grepjobs.netlify.app)
 ## Overview
-Users can search for open software developer jobs, filtering by keyword and/or location. Logged-in users can also save jobs and mark them as "applied."
-
+Users can search for open software developer jobs, filtering by keyword and/or location. Logged-in users can also save jobs and view them in their dashboard.
 ## Built with:
 Built with the PERN stack - 
+* [PostgreSQL](https://www.postgresql.org/)
+* [Express](https://expressjs.com/)
 * [React](https://reactjs.org/)
 * [Node.js](https://nodejs.org/en/)
-* [Express](https://expressjs.com/)
 
 ### Languages:
-- HTML
 - CSS
 - JavaScript
 - SQL
 
-### Frameworks
+### Additional Frameworks
 - React-Bootstrap
 
 ### Node Module Dependencies
-- express
-- date-fns
-- pg-promise
+- bootstrap 
 - cors
-- react
-- react-router-dom
-- react-dom
-- react-scripts
-- react-bootstrap
-- bootstrap
+- date-fns 
 - dompurify
+- express
+- pg-promise
+- react
+- react-bootstrap
+- react-dom
 - react-image-fallback
+- react-router-dom
+- react-scripts
 
 ### Public APIs
 - [FindWork](https://findwork.dev)
@@ -50,7 +49,13 @@ Desktop
 Mobile -->
 
 ## Features
-
+* Users can search for job postings aggregated from sources such as Stackoverflow, WeWorkRemotely, and Dribbble. 
+   * Search by keyword (technology, role, company name) and/or location
+   * Choose whether or not to include remote-work results
+   * Results are sorted by relevance 
+   * Quick display in card format, includes company name, role, and how long ago it was posted
+   * Detailed view adds job type (full-time, part-time), full description, and link to apply
+* Logged-in users can save jobs and view them in their dashboard
 
 <!-- GETTING STARTED -->
 ## Getting Started
