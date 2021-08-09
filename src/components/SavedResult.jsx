@@ -31,7 +31,7 @@ const SavedResult = (props) => {
             </Modal.Body>
             <Modal.Footer>
                 <Button variant="secondary" onClick={handleClose}>Cancel</Button>
-                <Button variant="danger" onClick={()=> props.deleteJob()}>Delete Job</Button>
+                <Button variant="danger" onClick={()=> props.deleteJob(id)}>Delete Job</Button>
             </Modal.Footer>
         </Modal>
 
