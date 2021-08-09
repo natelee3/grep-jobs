@@ -3,7 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import { useAuth0 } from '@auth0/auth0-react';
 import { Link } from 'react-router-dom';
-// import Image from 'react-bootstrap/Image';
+import Image from 'react-bootstrap/Image';
 
 import './Navigation.css'
 
@@ -17,9 +17,13 @@ const Navigation = () => {
     <Navbar.Brand href="/">
       <img src="/grepjobs_brand.png" alt="logo" className="brand-img"/>
     </Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav">
-      <img src="/grepjobs_brand.png" alt="avatar" />
-    </Navbar.Toggle>
+    {!!isAuthenticated ? (
+      <Navbar.Toggle aria-controls="basic-navbar-nav">
+        <Image src={user.picture} alt="avatar" fluid roundedCircle/>
+      </Navbar.Toggle>
+    ) : (
+      <Navbar.Toggle aria-controls="basic-navbar-nav"/>
+    )}
     <Navbar.Collapse id="basic-navbar-nav">
       <Nav className="mr-auto">
         <Nav.Link>
