@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import Profile from './components/Profile';
+// import Profile from './components/Profile';
 import Dashboard from "./components/Dashboard";
 import Search from "./components/Search";
 import Navigation from './components/Navigation';
