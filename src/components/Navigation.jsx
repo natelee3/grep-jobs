@@ -31,9 +31,8 @@ const Navigation = () => {
             <Nav.Link>
               <Link onClick={ () => logout({returnTo: window.location.origin})}>Logout</Link>
             </Nav.Link>
-            <Nav.Brand>
-              <Image src={user.picture} fluid roundedCircle/>
-            </Nav.Brand>
+            {/* <Image src={user.picture} fluid roundedCircle/> */}
+            
           </>
         ) : (
           <>
