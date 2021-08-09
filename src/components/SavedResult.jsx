@@ -22,7 +22,7 @@ const SavedResult = (props) => {
     };
     
     console.log('Value of applied from database for', company_name, applied)
-    console.log('AppliedBool for', company_name_applied)
+    console.log('AppliedBool for', company_name, applied)
     return (
         <>
         <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
