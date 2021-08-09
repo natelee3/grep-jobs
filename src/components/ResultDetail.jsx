@@ -23,7 +23,7 @@ const ResultDetail = ({searchResults, listings}) => {
                 return job.id === parseInt(listing.job_id)});
             return found;
         } else {
-            return singleListing.results;
+            return singleListing.results[0];
         }
     };
 
