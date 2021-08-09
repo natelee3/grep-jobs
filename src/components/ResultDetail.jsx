@@ -30,7 +30,6 @@ const ResultDetail = ({searchResults, listings}) => {
                 const dashboardListing = listings.find(listing => {
                     return listing.job_id === listingId;
                 })
-                console.log(dashboardListing)
                 const response = await _fetchAndFilter(dashboardListing);
                 setResult(response);
             }

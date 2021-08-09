@@ -1,8 +1,3 @@
-<!-- [![Contributors][contributors-shield]][contributors-url]
-[![Languages][languages-shield]][languages-url]
-[![Forks][forks-shield]][forks-url]
-[![Issues][issues-shield]][issues-url]
-[![LinkedIn][linkedin-shield]][linkedin-url] --> 
 # Grep Jobs
 A full stack web application to search for and save developer jobs. 
 
@@ -121,27 +116,3 @@ Contributions are what make the open source community such an amazing place to b
 ## Contact
 Nate Lee - [Portfolio](https://natelee.dev) - nleepercussion [at] gmail.com
 
-
-
-
-
-
-
-
-<!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/alynapchuk/git-hired-app?color=219ebc&style=for-the-badge
-[contributors-url]: #
-
-[languages-shield]: https://img.shields.io/github/languages/count/alynapchuk/git-hired-app?color=90ab60&style=for-the-badge
-[languages-url]: #
-
-[forks-shield]: https://img.shields.io/github/forks/alynapchuk/git-hired-app?color=f5af00&style=for-the-badge
-[forks-url]: #
-
-[issues-shield]: https://img.shields.io/bitbucket/issues-raw/alynapchuk/git-hired-app?style=for-the-badge
-[issues-url]: #
-
-[linkedin-shield]: https://img.shields.io/badge/-LinkedIn-black.svg?style=for-the-badge&logo=linkedin&colorB=555
-[linkedin-url]: https://www.linkedin.com/in/alynapchuk/
-
-[product-screenshot]: images/screenshot.png
