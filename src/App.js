@@ -1,5 +1,5 @@
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-// import Home from "./components/Home";
+import Profile from './components/Profile';
 import Dashboard from "./components/Dashboard";
 import Search from "./components/Search";
 import Navigation from './components/Navigation';
@@ -25,6 +25,9 @@ function App() {
           </Route>
           <Route path ='/login'>
             <Login />
+          </Route>
+          <Route path='/profile'>
+              <Profile />
           </Route>
           <Route path='*'>
             <Redirect to='/' />
