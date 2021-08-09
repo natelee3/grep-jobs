@@ -50,7 +50,7 @@ const SavedResult = (props) => {
                         />
                     </div>
                 </Col>
-                <Col xs={7}>
+                <Col xs={6}>
                     <Card.Body className="align-left">
                         <Card.Title><b>{role}</b></Card.Title>
                         <Card.Text>
@@ -65,7 +65,7 @@ const SavedResult = (props) => {
                             <Button variant="danger" onClick={()=> handleOpen()}>Delete</Button>
                     </Card.Body>
                 </Col>
-                <Col xs={2}>
+                <Col xs={3}>
                     <form>
                         <label className="applied-checkbox"> Applied
                             <input type="checkbox" checked={applied} onChange={changeApplied} />
