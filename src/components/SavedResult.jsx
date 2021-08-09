@@ -10,16 +10,18 @@ import './Search.css'
 
 const SavedResult = (props) => {
     const { id, job_id, role, company_name, location, logo, date_posted, applied } = props.listing;
-    const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
+    const formatDate = date_posted.slice(0,10).replace(/-/g, ",");
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleOpen = () => setShow(true);
+    const [appliedBool, setAppliedBool] = useState(applied);
 
     const deleteAndClose = () => {
         props.deleteJob(id);
         handleClose();
     };
-
+    
+    console.log({appliedBool})
     return (
         <>
         <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
@@ -64,7 +66,7 @@ const SavedResult = (props) => {
                 <Col xs={2}>
                     <form>
                         <label className="applied-checkbox"> Applied
-                            <input type="checkbox" value={applied} />
+                            <input type="checkbox" value={appliedBool} onChange={(e)=> setAppliedBool(!appliedBool)} />
                         </label>
                     </form>
                 </Col>
