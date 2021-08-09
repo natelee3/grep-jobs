@@ -8,9 +8,9 @@ const DateFunction = (props) => {
     return (
         <>
             {parseInt(daysBetween) < 1 ? (
-                <p>Posted less than a day ago</p>
+                <span>Posted less than a day ago</span>
             ) : (
-                <p>Posted {daysBetween} days ago</p>
+                <span>Posted {daysBetween} days ago</span>
             )}
         </>
     )

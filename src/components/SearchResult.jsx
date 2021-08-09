@@ -11,7 +11,7 @@ import './Search.css'
 const SearchResult = (props) => {
     const [favorite, setFavorite] = useState(false)
     const { user, isAuthenticated } = useAuth0();
-    const { id, role, company_name, location, logo, date_posted } = props.listing;
+    const { id, role, company_name, location, logo, date_posted, remote } = props.listing;
     const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
 
     const _saveJob = () => {
@@ -58,7 +58,13 @@ const SearchResult = (props) => {
                             <p>{company_name} - {!!location ? (
                                 <span>{location}</span>
                             ) : (<span>No office location</span>) }</p>
-                            <DateFunction formatDate={formatDate}/>
+                            <p>
+                                <DateFunction formatDate={formatDate}/>
+                                {!!remote ? (
+                                    <span><b> ● Remote</b></span>
+
+                                ) : null}
+                            </p>
                         </Card.Text>
                         <Link to={`/${id}`}>
                             <Button variant="primary">Details</Button>
