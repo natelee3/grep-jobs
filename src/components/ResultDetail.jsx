@@ -16,17 +16,13 @@ const ResultDetail = ({searchResults, listings}) => {
       };
 
     const _fetchAndFilter = async (listing) => {
-        console.log('Running fetchFilter function', listing)
         let url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${listing.role}`;
         const singleListing = await fetch(url).then(response => response.json());
-        console.log(singleListing.results)
         if (singleListing.results.length > 1) {
             const found = singleListing.results.find(job => {
                 return job.id === parseInt(listing.job_id)});
-            console.log('Returning single listing from find', found)
             return found;
         } else {
-            console.log('Returning single result')
             return singleListing.results;
         }
     };
@@ -35,21 +31,17 @@ const ResultDetail = ({searchResults, listings}) => {
         (async () => {
             //Coming from Dashboard, listings object contains all saved jobs from database
             if (!!listings) {
-                console.log('We have listings!')
                 const dashboardListing = listings.find(listing => {
                     return listing.job_id === listingId;
                 })
                 const response = await _fetchAndFilter(dashboardListing);
-                console.log('Listings response', response);
                 setResult(response);
             }
             //Coming from Search, searchResults object contains all search results
             if (!!searchResults) {
-                console.log('We have searchResults!');
                 const searchListing = searchResults.find(listing => {
                     return listing.id === parseInt(listingId)
                 })
-                console.log(searchListing);
                 setResult(searchListing);
             }
         })()

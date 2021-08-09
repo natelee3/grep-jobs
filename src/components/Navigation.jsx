@@ -17,9 +17,11 @@ const Navigation = () => {
     <Navbar.Brand href="/">
       <img src="/grepjobs_brand.png" alt="logo" className="brand-img"/>
     </Navbar.Brand>
-    <Navbar.Toggle aria-controls="basic-navbar-nav" />
+    <Navbar.Toggle aria-controls="basic-navbar-nav">
+      <img src="/grepjobs_brand.png" alt="avatar" />
+    </Navbar.Toggle>
     <Navbar.Collapse id="basic-navbar-nav">
-      <Nav className="me-auto">
+      <Nav className="mr-auto">
         <Nav.Link>
           <Link to='/search'>Home</Link>
         </Nav.Link>
