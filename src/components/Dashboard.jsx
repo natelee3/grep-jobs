@@ -65,7 +65,7 @@ const Dashboard = (props) => {
                             {!!isAuthenticated ? (
                                 <>
                                     <h1>Saved Jobs for {user.nickname}</h1>
-                                    <div className="content">
+                                    <div className="">
                                         {listings.map(listing => (
                                             <SavedResult 
                                                 listing={listing}

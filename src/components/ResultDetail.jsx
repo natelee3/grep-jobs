@@ -85,7 +85,7 @@ const ResultDetail = ({searchResults, listings}) => {
                     </div>
                     <br/>
                     <h5>Job Description:</h5>
-                    <div dangerouslySetInnerHTML={sanitizeData()}/>
+                    <div class="job-text" dangerouslySetInnerHTML={sanitizeData()}/>
 
                     
                 </div> <br/>
