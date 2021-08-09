@@ -10,14 +10,16 @@ const Search = (props) => {
     const [location, setLocation] = useState('')
     const [searchResults, setSearchResults] = useState([])
     const [pastResults, setPastResults] = useState([])
+    const [noResults, setNoResults] = useState(false)
 
 
     const _fetchResults = async () => {
+        setNoResults(false);
         const url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${searchTerms}&location=${location}&sort_by=relevance`;
         await fetch(url)
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+                if (data.count === 0) {setNoResults(true)}
                 setSearchResults(data.results)
             })
         
@@ -82,9 +84,9 @@ const Search = (props) => {
                                     </Row>
                                     
                                 ))
-                                : 
-                                
-                                (<> No results yet... </>)}
+                                : !!noResults ? (
+                                    <>No results were returned from the search. Please search again</>
+                                ) : (<> No results yet... </>)}
                         </div>
                     </div>
                 </Route>
