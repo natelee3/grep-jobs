@@ -49,6 +49,7 @@ const ResultDetail = ({searchResults, listings}) => {
     
     
     if (!!result) { 
+        console.log(result)
         const formatDate = result.date_posted.slice(0,10).replace(/-/g, ",")
         const data = result.text
         const sanitizeData = () => ({
