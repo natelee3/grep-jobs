@@ -16,6 +16,10 @@
   }
 
   .user-avatar {
-    max-height: 60px;
+    max-height: 40px;
     width: auto;
+  }
+
+  .navbar-toggler {
+    border-color: rgba(0,0,0,0);
   }
