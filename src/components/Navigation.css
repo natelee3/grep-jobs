@@ -39,6 +39,7 @@ a {
 
 #theme-toggle svg {
     height: 18px;
+    color: var(--primary);
 }
 
 .nav-container button {
