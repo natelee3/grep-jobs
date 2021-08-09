@@ -7,7 +7,7 @@
 A full stack web application to search for and save developer jobs. 
 
 Completed as DigitalCrafts solo React project <br/>
-Active development: August 1-8, 2021
+Active development: August 3-10, 2021
 
 Live Deployment: [grepjobs.netlify.app](grepjobs.netlify.app)
 ## Overview
