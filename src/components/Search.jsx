@@ -16,7 +16,10 @@ const Search = (props) => {
         const url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${searchTerms}&location=${location}&sort_by=relevance`;
         await fetch(url)
             .then(response => response.json())
-            .then(data => setSearchResults(data.results))
+            .then(data => {
+                console.log(data)
+                setSearchResults(data.results)
+            })
         
     };
 
@@ -79,7 +82,9 @@ const Search = (props) => {
                                     </Row>
                                     
                                 ))
-                                : (<> No results yet... </>)}
+                                : 
+                                
+                                (<> No results yet... </>)}
                         </div>
                     </div>
                 </Route>
