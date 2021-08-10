@@ -50,7 +50,17 @@ Mobile -->
    * Results are sorted by relevance 
    * Quick display in card format, includes company name, role, and how long ago it was posted
    * Detailed view adds job type (full-time, part-time), full description, and link to apply
-* Logged-in users can save jobs and view them in their dashboard
+* Logged-in users have access to the dashboard where they can:
+   * View all saved jobs (card format and detailed view)
+   * Mark jobs as "applied"
+   * Delete saved jobs
+* Users can opt for dark or light mode
+
+## Future Improvements
+* Add user profile and allow users to edit email, password, and avatar using the Auth0 API
+* Add loading components that run when the data is loading
+* Add resources sections (eg- Cover letter and resume advice)
+* Add counters to indicate how many people have saved certain jobs
 
 <!-- GETTING STARTED -->
 ## Getting Started

@@ -25,20 +25,6 @@
     --mainColor: rgba(255, 255, 255, 0.56);
     --inverse: rgba(0, 0, 0, 0.88);
   }
-  /* 
-  [data-theme="light"] {
-    --theme: #fff;
-    --entry: #fff;
-    --primary: rgba(0, 0, 0, 0.88);
-    --secondary: rgba(0, 0, 0, 0.56);
-    --tertiary: rgba(0, 0, 0, 0.16);
-    --content: rgba(0, 0, 0, 0.88);
-    --hljs-bg: #1c1d21;
-    --code-bg: #f5f5f5;
-    --border: #eee;
-    --mainColor: #2acddd;
-    --inverse: #fff;
-  } */
   
   body {
     background: var(--theme);
