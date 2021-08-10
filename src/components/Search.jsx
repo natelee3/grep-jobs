@@ -39,7 +39,7 @@ const Search = (props) => {
                 <Route exact path='/'>
                     <div className="content">
                         <h1>Search</h1>
-                        <h4>Let us help you find your next position. Search by keyword and/or city to return active listings.</h4>
+                        <h4 className='subtitle'>Let us help you find your next position. Search by keyword and/or city to return active listings.</h4>
                         <form onSubmit={_submitForm}>
                             <label>
                                 <input 
