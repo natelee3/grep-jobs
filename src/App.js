@@ -5,6 +5,7 @@ import { useState } from 'react';
 import Search from "./components/Search";
 import Navigation from './components/Navigation';
 import Login from './components/Login';
+import Profile from './components/Profile';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useAuth0 } from '@auth0/auth0-react';
 import './App.css';
@@ -31,9 +32,9 @@ function App() {
           <Route path ='/login'>
             <Login />
           </Route>
-          {/* <Route path='/profile'>
+          <Route path='/profile'>
               <Profile />
-          </Route> */}
+          </Route>
           <Route path='*'>
             <Redirect to='/' />
           </Route>

@@ -36,12 +36,12 @@ const Dashboard = (props) => {
         })();
     },[user])
 
-    const _deleteJob = async (id) => {
+    const _deleteJob = async (job_id) => {
         const requestOptions = {
-            method: 'POST',
+            method: 'DELETE',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                id: id, 
+                job_id: job_id, 
                 user_sub: user.sub.slice(6)
                 }
             )
@@ -56,12 +56,12 @@ const Dashboard = (props) => {
             }
     };
 
-    const _updateJob = async (id, applied) => {
+    const _updateJob = async (job_id, applied) => {
         const requestOptions = {
-            method: 'POST',
+            method: 'PUT',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
-                id: id, 
+                job_id: job_id, 
                 applied: applied,
                 user_sub: user.sub.slice(6)
                 }

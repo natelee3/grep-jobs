@@ -53,10 +53,12 @@ const SavedResult = (props) => {
                     <Card.Body className="align-left">
                         <Card.Title><b>{role}</b></Card.Title>
                         <Card.Text>
-                            <p>{company_name} - {!!location ? (
+                            {company_name} - {!!location ? (
                                 <span>{location}</span>
-                            ) : (<span>No office location</span>) }</p>
-                            <DateFunction date_posted={date_posted}/>
+                            ) : (<span>No office location</span>) }
+                            <div>
+                                <DateFunction date_posted={date_posted}/>
+                            </div>
                         </Card.Text>
                         <Link to={`dashboard/${job_id}`}>
                             <Button variant="primary">Details</Button>

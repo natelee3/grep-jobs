@@ -41,11 +41,9 @@ const Navigation = (props) => {
             
           </>
         ) : (
-          <>
             <Nav.Link eventKey="2">
               <Link onClick={ async() => await loginWithRedirect()} href='/dashboard'>Login/Sign Up</Link>
             </Nav.Link>
-          </>
         )}
           <button id="theme-toggle" type="button" onClick={props.toggleDarkMode}>
             {props.darkMode ? 
