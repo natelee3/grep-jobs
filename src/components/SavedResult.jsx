@@ -10,7 +10,6 @@ import './Search.css'
 
 const SavedResult = (props) => {
     const { id, job_id, role, company_name, location, logo, date_posted, applied } = props.listing;
-    const formatDate = date_posted.slice(0,10).replace(/-/g, ",");
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleOpen = () => setShow(true);
@@ -57,7 +56,7 @@ const SavedResult = (props) => {
                             <p>{company_name} - {!!location ? (
                                 <span>{location}</span>
                             ) : (<span>No office location</span>) }</p>
-                            <DateFunction formatDate={formatDate}/>
+                            <DateFunction date_posted={date_posted}/>
                         </Card.Text>
                         <Link to={`dashboard/${job_id}`}>
                             <Button variant="primary">Details</Button>

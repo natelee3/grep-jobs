@@ -12,7 +12,6 @@ const SearchResult = (props) => {
     const [favorite, setFavorite] = useState(false)
     const { user, isAuthenticated } = useAuth0();
     const { id, role, company_name, location, logo, date_posted, remote } = props.listing;
-    const formatDate = date_posted.slice(0,10).replace(/-/g, ",")
 
     const _saveJob = () => {
         console.log(id, user.sub, company_name, role, logo, location, date_posted)
@@ -59,7 +58,7 @@ const SearchResult = (props) => {
                                 <span>{location}</span>
                             ) : (<span>No office location</span>) }</p>
                             <p>
-                                <DateFunction formatDate={formatDate}/>
+                                <DateFunction date_posted={date_posted}/>
                                 {!!remote ? (
                                     <span><b> ● Remote</b></span>
 
