@@ -1,5 +1,5 @@
 {
-  "name": "jobs-app",
+  "name": "grep-jobs",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

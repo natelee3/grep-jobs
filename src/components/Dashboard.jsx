@@ -83,20 +83,23 @@ const Dashboard = (props) => {
                 <Switch>
                     <Route exact path={path}>
                         <div className="content">
-                            {!!isAuthenticated ? (
-                                <>
-                                    <h1>Saved Jobs for {user.nickname}</h1>
-                                    <div className="card-container container">
-                                        {listings.map(listing => (
-                                            <SavedResult 
-                                                listing={listing}
-                                                deleteJob={_deleteJob}
-                                                updateJob={_updateJob}
-                                                />
-                                        ))}
-                                    </div>
-                                </>
-                            ) : (<h2>You must <Link onClick={ async() => await loginWithRedirect()} href='/dashboard' style={{color: 'blue'}}>Login/Sign Up </Link>
+                            {!!isAuthenticated ?
+                                // !!listings ? (
+                                    <>
+                                        <h1>Saved Jobs for {user.nickname}</h1>
+                                        <div className="card-container container">
+                                            {listings.map(listing => (
+                                                <SavedResult 
+                                                    listing={listing}
+                                                    deleteJob={_deleteJob}
+                                                    updateJob={_updateJob}
+                                                    />
+                                            ))}
+                                        </div>
+                                    </>
+                                // ) : (<h2>You don't have any listings saved yet. </h2>)
+                                
+                             : (<h2>You must <Link onClick={ async() => await loginWithRedirect()} href='/dashboard' style={{color: 'blue'}}>Login/Sign Up </Link>
                             to view this page </h2>)}
                         </div>
                     </Route>
@@ -110,7 +113,6 @@ const Dashboard = (props) => {
                 </Switch>
             </Router>
         </>
-       
     )
 };
 
