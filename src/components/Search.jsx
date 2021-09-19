@@ -3,7 +3,7 @@ import { useState } from 'react';
 import SearchResult from './SearchResult';
 import ResultDetail from './ResultDetail';
 import './Search.css';
-import Row from 'react-bootstrap/Row';
+import { Row } from 'react-bootstrap';
 
 const Search = (props) => {
     const [searchTerms, setSearchTerms] = useState('');
@@ -12,16 +12,19 @@ const Search = (props) => {
     const [pastResults, setPastResults] = useState([]);
     const [noResults, setNoResults] = useState(false);
     const [remote, setRemote] = useState(true);
+    const [isLoading, setLoading] = useState(false);
 
 
     const _fetchResults = async () => {
+        setLoading(true);
         const url = `http://localhost:3333/proxy?url=https://findwork.dev/api/jobs?search=${searchTerms}&location=${location}&remote=${remote}&sort_by=relevance`;
         await fetch(url)
             .then(response => response.json())
             .then(data => {
                 if (data.count === 0) {setNoResults(true)}
-                setSearchResults(data.results)
-            })
+                setSearchResults(data.results);
+                setLoading(false);
+            });
         
     };
 
@@ -31,7 +34,7 @@ const Search = (props) => {
         setPastResults([...pastResults, searchTerms])
         setSearchTerms('')
         setLocation('');
-    }
+    };
 
     return (
         <Router>
@@ -73,8 +76,9 @@ const Search = (props) => {
                             <input 
                                 className="btn btn-sm btn-primary" 
                                 data-testid="searchButton"
-                                type="submit" 
-                                value="Search" />
+                                type="submit"
+                                disabled={isLoading}
+                                value={isLoading ? 'Searching...' : 'Search'} />
                         </form>
                         <hr />
                         {pastResults.length > 0 ? (
@@ -93,7 +97,7 @@ const Search = (props) => {
                                 ))
                                 : !!noResults ? (
                                     <>No results were returned from the search. Please search again</>
-                                ) : (<> No results yet... </>)}
+                                ) : null}
                         </div>
                     </div>
                 </Route>
