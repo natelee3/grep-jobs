@@ -20,7 +20,7 @@ const SavedResult = (props) => {
     };
 
     const changeApplied = () => {
-        props.updateJob(id, applied)
+        props.updateJob(job_id, applied)
     }
     
     return (

@@ -58,7 +58,7 @@ const Dashboard = (props) => {
 
     const _updateJob = async (job_id, applied) => {
         const requestOptions = {
-            method: 'PUT',
+            method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify({
                 job_id: job_id, 
